@@ -3,6 +3,7 @@
 ## 📝 Project Overview
 This is a deep learning-based application designed to detect human facial expressions in real-time through a webcam. By utilizing **Transfer Learning** with the **MobileNetV2** architecture, the system achieves a balance of high accuracy and efficient performance suitable for edge devices.
 
+## Note: still a work in progress. 
 ---
 
 ## 🚀 Key Features
