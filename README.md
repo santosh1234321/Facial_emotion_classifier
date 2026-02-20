@@ -1,61 +1,81 @@
-#Real-Time Emotion Detection System
-A deep learning-based application that detects human facial expressions in real-time using a webcam. The project utilizes Transfer Learning with a pre-trained MobileNetV2 model to achieve high accuracy and performance.
+# 🎭 Real-Time Emotion Detection System
 
-##🚀 Features
-Real-time Detection: Processes live video feed at high FPS using OpenCV.
+## 📝 Project Overview
+This is a deep learning-based application designed to detect human facial expressions in real-time through a webcam. By utilizing **Transfer Learning** with the **MobileNetV2** architecture, the system achieves a balance of high accuracy and efficient performance suitable for edge devices.
 
-High Accuracy: Leverages MobileNetV2 pre-trained on ImageNet for robust feature extraction.
+---
 
-Seven Emotion Classes: Detects Angry, Disgust, Fear, Happy, Neutral, Sad, and Surprise.
+## 🚀 Key Features
 
-Class Balancing: Implements class weights during training to prevent model bias.
+* **Real-time Detection**: 
+    * Utilizes OpenCV to process live video feeds at high frames per second (FPS).
+* **Robust Feature Extraction**: 
+    * Leverages a MobileNetV2 model pre-trained on the ImageNet dataset for superior pattern recognition.
+* **Comprehensive Emotion Coverage**: 
+    * Classifies seven distinct emotions: Angry, Disgust, Fear, Happy, Neutral, Sad, and Surprise.
+* **Optimized Training**: 
+    * Implements class weights during the training phase to handle dataset imbalance and prevent model bias.
 
-##🛠️ Tech Stack
-Language: Python
+---
 
-Deep Learning: TensorFlow / Keras
+## 🛠️ Tech Stack
 
-Computer Vision: OpenCV
+* **Programming Language**: Python
+* **Deep Learning Framework**: TensorFlow / Keras
+* **Computer Vision Library**: OpenCV
+* **Infrastructure**: 
+    * **Training**: Google Colab (utilizing T4 GPU acceleration)
+    * **Inference**: Local Windows environment
 
-##Environment: Google Colab (Training) and Local Windows (Inference)
+---
 
-##📂 Project Structure
-Plaintext
-emotion/
-├── dataset/            # FER-2013 Dataset (train/test folders)
-├── model/              # Contains the trained 'emotion_model.h5'
-├── train.py            # Model training script for Google Colab
-├── run.py              # Real-time inference script for Local PC
-└── README.md           # Documentation
+## 📈 Model Architecture & Performance
 
-##📈 Model Performance
-The model was trained for 20 epochs on the FER-2013 dataset.
+The model was trained for **20 epochs** using the **FER-2013 dataset**.
 
-Architecture: MobileNetV2 (Base) + GlobalAveragePooling + Dense (128) + Dropout (0.3).
+### Architecture Layers
+* **Base**: MobileNetV2 (Pre-trained)
+* **Pooling**: Global Average Pooling 2D
+* **Dense Layer**: 128 units with ReLU activation
+* **Regularization**: Dropout layer (0.3) to prevent overfitting
 
-Optimization: Adam Optimizer with Categorical Crossentropy loss.
+### Training Configuration
+* **Optimizer**: Adam
+* **Loss Function**: Categorical Crossentropy
+* **Input Dimensions**: 96x96 pixels in RGB color space
 
-Input Size: 96x96 pixels (RGB).
+---
 
-##🔧 Installation & Usage
-1. Training (Google Colab)
-Upload your dataset zip file to Colab.
+## 📂 Project Structure
 
-Run train.py using a T4 GPU runtime.
+* `dataset/`: Contains the FER-2013 image data organized into `train` and `test` subfolders.
+* `model/`: Dedicated directory for the saved `emotion_model.h5` file.
+* `train.py`: The training pipeline optimized for Google Colab environments.
+* `run.py`: The local inference script for real-time webcam detection.
+* `README.md`: Project documentation and setup guide.
 
-Download the generated emotion_model.h5.
+---
 
-2. Local Setup
-Clone this repository to your desktop.
+## 🔧 Installation & Setup
 
-Install dependencies:
+### 1. Training Phase (Cloud)
+* Upload the dataset archive to your Google Colab instance.
+* Ensure the runtime type is set to **T4 GPU**.
+* Execute `train.py` to generate the weights.
+* Download the final `emotion_model.h5` to your local machine.
 
-Bash
-pip install tensorflow opencv-python numpy
-Place the downloaded emotion_model.h5 in the model/ directory.
+### 2. Local Environment Setup (Windows)
+* Clone the repository to your local directory.
+* Install the required dependencies via terminal:
+    ```bash
+    pip install tensorflow opencv-python numpy
+    ```
+* Place the `emotion_model.h5` file into the `model/` folder.
 
-3. Execution
-Run the real-time detection script:
+### 3. Running the Application
+* Open your terminal or command prompt.
+* Navigate to the project root and execute:
+    ```bash
+    python run.py
+    ```
 
-Bash
-python run.py
